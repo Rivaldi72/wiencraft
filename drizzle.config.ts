@@ -5,6 +5,6 @@ export default defineConfig({
   schema: './src/db/schema.ts',
   dialect: 'sqlite',
   dbCredentials: {
-    url: './sqlite.db',
+    url: process.env.VERCEL ? '/tmp/sqlite.db' : './sqlite.db',
   },
 });
