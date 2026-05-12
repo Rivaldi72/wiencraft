@@ -1,17 +1,74 @@
 import Database from "better-sqlite3";
+import { copyFileSync, existsSync, mkdirSync, rmSync, statSync } from "node:fs";
 import { drizzle } from "drizzle-orm/better-sqlite3";
 import * as schema from "./schema";
 import seedData from "../data/seed.json";
 
-const dbPath = process.env.VERCEL ? "/tmp/sqlite.db" : "./sqlite.db";
+const runtimeDbPath = process.env.VERCEL ? "/tmp/sqlite.db" : "./sqlite.db";
+const bundledDbPath = "./sqlite.db";
+const bundledDbWalPath = "./sqlite.db-wal";
+const bundledDbShmPath = "./sqlite.db-shm";
+
+const runtimeDbFiles = [
+  { source: bundledDbPath, target: runtimeDbPath },
+  { source: bundledDbWalPath, target: `${runtimeDbPath}-wal` },
+  { source: bundledDbShmPath, target: `${runtimeDbPath}-shm` },
+];
 
 type ProductInsert = typeof schema.products.$inferInsert;
 type BlogInsert = typeof schema.blogs.$inferInsert;
 type TestimonialInsert = typeof schema.testimonials.$inferInsert;
 type HomepageSettingInsert = typeof schema.homepageSettings.$inferInsert;
 
+function hasRequiredTables(dbFile: string) {
+  try {
+    if (!existsSync(dbFile) || statSync(dbFile).size === 0) {
+      return false;
+    }
+
+    const sqlite = new Database(dbFile, { readonly: true, fileMustExist: true });
+    const tables = sqlite
+      .prepare("select name from sqlite_master where type = 'table'")
+      .all() as Array<{ name: string }>;
+    sqlite.close();
+
+    const tableNames = new Set(tables.map((table) => table.name));
+    return ["categories", "products", "blogs", "testimonials", "homepage_settings", "users"].every(
+      (table) => tableNames.has(table),
+    );
+  } catch {
+    return false;
+  }
+}
+
+function ensureRuntimeDatabase() {
+  if (!process.env.VERCEL) {
+    return runtimeDbPath;
+  }
+
+  if (hasRequiredTables(runtimeDbPath)) {
+    return runtimeDbPath;
+  }
+
+  mkdirSync("/tmp", { recursive: true });
+
+  for (const { target } of runtimeDbFiles) {
+    if (existsSync(target)) {
+      rmSync(target, { force: true });
+    }
+  }
+
+  for (const { source, target } of runtimeDbFiles) {
+    if (existsSync(source)) {
+      copyFileSync(source, target);
+    }
+  }
+
+  return runtimeDbPath;
+}
+
 function createDatabase() {
-  const sqlite = new Database(dbPath, { timeout: 15000 });
+  const sqlite = new Database(ensureRuntimeDatabase(), { timeout: 15000 });
   sqlite.pragma("journal_mode = WAL");
   sqlite.pragma("busy_timeout = 15000");
   return drizzle(sqlite, { schema });

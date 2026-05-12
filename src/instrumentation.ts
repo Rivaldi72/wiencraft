@@ -1,5 +1,3 @@
-import { seedDatabase } from "./db/seed";
-
 export async function register() {
-  seedDatabase();
+  // Database initialization is handled lazily in src/db/index.ts.
 }
