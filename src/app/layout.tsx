@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   keywords: ["rajut handmade", "tas rajut premium", "amigurumi indonesia", "kado unik", "kerajinan tangan", "WienCraft", "custom order rajut", "buket bunga rajut"],
   authors: [{ name: "WienCraft Team" }],
   creator: "WienCraft",
+  icons: {
+    icon: "/icon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "id_ID",

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <circle cx="32" cy="32" r="29" fill="#FAF3E7" stroke="#B8643E" stroke-width="2.5" />
+  <text
+    x="32"
+    y="38"
+    fill="#B8643E"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="25"
+    font-weight="700"
+    letter-spacing="-1.2"
+    text-anchor="middle"
+  >
+    W
+  </text>
+</svg>
