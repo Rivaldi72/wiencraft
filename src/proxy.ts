@@ -4,7 +4,7 @@ import { jwtVerify } from "jose";
 
 const secret = new TextEncoder().encode(process.env.ADMIN_SECRET || "wiencraft-secret-key-change-me-2026");
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith("/admin") && request.nextUrl.pathname !== "/admin/login") {
     const token = request.cookies.get("wiencraft_token")?.value;
     if (!token) {

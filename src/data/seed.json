@@ -1,181 +1,189 @@
 {
   "categories": [
     {
+      "id": 1,
       "name": "Gantungan Kunci",
       "slug": "gantungan-kunci",
-      "description": "Gantungan kunci rajut lucu",
-      "image": "/images/cat-keychain.jpg"
+      "description": "Aksesoris rajut mungil yang menggemaskan untuk kunci atau tas Anda.",
+      "image": "/cat-gantungan-kunci.png"
     },
     {
+      "id": 2,
       "name": "Tas",
       "slug": "tas",
-      "description": "Tas rajut aesthetic handmade",
-      "image": "/images/cat-bag.jpg"
+      "description": "Tas rajut elegan dengan berbagai model untuk menunjang gaya harian Anda.",
+      "image": "/cat-tas.png"
     },
     {
+      "id": 3,
       "name": "Dompet",
       "slug": "dompet",
-      "description": "Dompet rajut premium",
-      "image": "/images/cat-wallet.jpg"
+      "description": "Dompet rajut praktis dan stylish untuk menyimpan kebutuhan esensial Anda.",
+      "image": "/cat-dompet.png"
     },
     {
+      "id": 4,
       "name": "Boneka Rajut",
       "slug": "boneka-rajut",
-      "description": "Boneka rajut imut",
-      "image": "/images/cat-doll.jpg"
+      "description": "Boneka rajut (amigurumi) lembut dan aman, cocok untuk kado atau koleksi.",
+      "image": "/cat-boneka.png"
     },
     {
+      "id": 5,
       "name": "Bouquet",
       "slug": "bouquet",
-      "description": "Buket rajut everlasting",
-      "image": "/images/cat-bouquet.jpg"
+      "description": "Buket bunga rajut yang takkan pernah layu sebagai simbol kasih sayang abadi.",
+      "image": "/cat-bouquet.png"
     },
     {
+      "id": 6,
+      "name": "Sepatu",
+      "slug": "sepatu",
+      "description": "Sepatu rajut handmade yang nyaman dengan desain unik dan eksklusif.",
+      "image": "/product-sepatu-1.png"
+    },
+    {
+      "id": 7,
       "name": "Custom",
       "slug": "custom",
-      "description": "Custom request sesuai keinginan",
-      "image": "/images/cat-custom.jpg"
+      "description": "Wujudkan ide rajutan impian Anda melalui layanan custom order kami.",
+      "image": "/cat-custom.png"
     }
   ],
   "products": [
     {
-      "name": "Tas Rajut Bohemian",
-      "slug": "tas-rajut-bohemian",
-      "description": "Tas rajut handmade dengan motif bohemian. Cocok untuk hangout dan kado.",
-      "material": "Cotton premium yarn",
+      "name": "Tas Rajut Bundar",
+      "slug": "tas-rajut-bundar",
+      "description": "Tas rajut dengan bentuk bundar yang unik dan minimalis. Dibuat menggunakan benang katun premium yang kuat namun tetap lembut di tangan. Dilengkapi dengan lapisan dalam (furing) yang rapi dan penutup berkualitas.",
+      "material": "Premium Cotton Yarn",
       "price": 285000,
       "categoryId": 2,
-      "images": [
-        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80"
-      ],
+      "images": ["/product-tas-bundar.png"],
       "status": "published",
       "featured": true,
-      "seoTitle": "Tas Rajut Bohemian Handmade - WienCraft",
-      "seoDesc": "Tas rajut aesthetic handmade premium. Cocok untuk hadiah dan fashion daily."
+      "seoTitle": "Tas Rajut Bundar Handmade Premium - WienCraft",
+      "seoDesc": "Tas rajut bundar aesthetic handmade dari WienCraft. Desain minimalis dengan material premium untuk gaya harian Anda."
+    },
+    {
+      "name": "Tas Rajut Kotak",
+      "slug": "tas-rajut-kotak",
+      "description": "Tas rajut model kotak yang klasik dan versatile. Sangat cocok untuk membawa perlengkapan esensial Anda dengan tetap terlihat modis. Pilihan warna yang elegan membuatnya mudah dipadukan dengan berbagai busana.",
+      "material": "Soft Cotton Poly Yarn",
+      "price": 245000,
+      "categoryId": 2,
+      "images": ["/product-tas-kotak.png"],
+      "status": "published",
+      "featured": true,
+      "seoTitle": "Tas Rajut Kotak Minimalis Handmade - WienCraft",
+      "seoDesc": "Tas rajut kotak handmade premium dengan desain elegan dan pengerjaan rapi hanya di WienCraft."
+    },
+    {
+      "name": "Sepatu Rajut Handmade",
+      "slug": "sepatu-rajut-handmade",
+      "description": "Sepatu rajut yang dirancang khusus untuk kenyamanan maksimal. Material benang berkualitas memberikan sirkulasi udara yang baik. Cocok untuk penggunaan santai di dalam maupun luar ruangan.",
+      "material": "Cotton Milk Yarn",
+      "price": 185000,
+      "categoryId": 6,
+      "images": ["/product-sepatu-1.png", "/product-sepatu-2.jpg", "/product-sepatu-3.png"],
+      "status": "published",
+      "featured": true,
+      "seoTitle": "Sepatu Rajut Handmade Nyaman & Stylish - WienCraft",
+      "seoDesc": "Sepatu rajut handmade premium yang ringan dan nyaman digunakan sepanjang hari. Tersedia dalam berbagai pilihan warna."
     },
     {
       "name": "Gantungan Kunci Cactus",
       "slug": "gantungan-kunci-cactus",
-      "description": "Gantungan kunci bentuk kactus mini yang lucu.",
-      "material": "Soft acrylic yarn",
+      "description": "Gantungan kunci amigurumi berbentuk kaktus yang lucu. Dibuat dengan detail yang presisi menggunakan teknik rajut tangan profesional. Aksesoris sempurna untuk mempercantik tas atau kunci kendaraan Anda.",
+      "material": "Milk Cotton Yarn",
       "price": 45000,
       "categoryId": 1,
-      "images": [
-        "https://images.unsplash.com/photo-1612198188060-c7c2a1b2f6b1?w=800&q=80"
-      ],
+      "images": ["/product-gantungan-kunci.png"],
       "status": "published",
       "featured": true,
-      "seoTitle": "Gantungan Kunci Cactus Rajut - WienCraft",
-      "seoDesc": "Gantungan kunci cactus rajut lucu handmade oleh WienCraft."
-    },
-    {
-      "name": "Bouquet Rajut Tulip",
-      "slug": "bouquet-rajut-tulip",
-      "description": "Buket tulip rajut yang tidak layu. Hadiah spesial untuk orang tersayang.",
-      "material": "Cotton milk yarn",
-      "price": 175000,
-      "categoryId": 5,
-      "images": [
-        "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&q=80"
-      ],
-      "status": "published",
-      "featured": true,
-      "seoTitle": "Bouquet Tulip Rajut - WienCraft",
-      "seoDesc": "Buket tulip rajut handmade, hadiah unik yang tidak layu."
+      "seoTitle": "Gantungan Kunci Kaktus Rajut Lucu - WienCraft",
+      "seoDesc": "Gantungan kunci rajut amigurumi kaktus handmade. Aksesoris mungil yang unik untuk koleksi Anda."
     },
     {
       "name": "Boneka Rajut Bunny",
       "slug": "boneka-rajut-bunny",
-      "description": "Boneka kelinci rajut empuk dan aman untuk anak.",
-      "material": "Baby safe yarn",
+      "description": "Boneka kelinci rajut (amigurumi) yang lembut dan menggemaskan. Menggunakan isian dakron kualitas terbaik sehingga empuk dan tahan lama. Aman digunakan sebagai mainan anak-anak.",
+      "material": "Baby Soft Yarn",
       "price": 125000,
       "categoryId": 4,
-      "images": [
-        "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&q=80"
-      ],
+      "images": ["/product-sepatu-3.png"],
       "status": "published",
       "featured": false,
-      "seoTitle": "Boneka Kelinci Rajut - WienCraft",
-      "seoDesc": "Boneka kelinci rajut handmade aman untuk anak."
+      "seoTitle": "Boneka Kelinci Rajut Amigurumi Handmade - WienCraft",
+      "seoDesc": "Boneka bunny rajut handmade yang lembut dan aman untuk anak-anak. Hadiah istimewa untuk momen spesial."
     },
     {
       "name": "Dompet Rajut Minimalis",
       "slug": "dompet-rajut-minimalis",
-      "description": "Dompet rajut minimalis dengan banyak slot kartu.",
-      "material": "Cotton blended yarn",
+      "description": "Dompet rajut dengan ukuran ringkas namun fungsional. Dilengkapi dengan resleting yang lancar dan desain motif yang menarik. Pilihan tepat bagi Anda yang menyukai gaya hidup praktis.",
+      "material": "Polyester Yarn",
       "price": 95000,
       "categoryId": 3,
-      "images": [
-        "https://images.unsplash.com/photo-1627123424574-181ce5171c98?w=800&q=80"
-      ],
+      "images": ["/cat-dompet.png"],
       "status": "published",
       "featured": false,
-      "seoTitle": "Dompet Rajut Minimalis - WienCraft",
-      "seoDesc": "Dompet rajut minimalis handmade dengan slot kartu."
+      "seoTitle": "Dompet Rajut Minimalis Handmade - WienCraft",
+      "seoDesc": "Dompet rajut handmade praktis dengan desain motif unik. Material kuat dan pengerjaan rapi."
     }
   ],
   "blogs": [
     {
-      "title": "Ide Hadiah Handmade yang Berkesan",
-      "slug": "ide-hadiah-handmade",
-      "excerpt": "Hadiah handmade selalu punya nilai sentimental lebih. Ini ide kado rajut yang cocok untuk berbagai momen.",
-      "content": "## Kenapa Hadiah Handmade Spesial?\\n\\nHadiah handmade memiliki nilai sentimental yang tinggi karena dibuat dengan tangan dan penuh perhatian.\\n\\n### 1. Bouquet Rajut\\nBuket yang tidak layu, simbol kasih sayang abadi.\\n\\n### 2. Tas Rajut Custom\\nTas dengan warna favorit penerima.\\n\\n### 3. Boneka Rajut\\nCocok untuk anak atau pasangan yang suka koleksi unik.\\n\\nPesan sekarang di WienCraft untuk hadiah yang berkesan!",
-      "thumbnail": "https://images.unsplash.com/photo-1512909006721-3d6018887383?w=800&q=80",
-      "category": "Inspirasi",
-      "tags": [
-        "hadiah",
-        "handmade",
-        "kado"
-      ],
+      "title": "Tutorial Merajut untuk Pemula — Mulai dari Nol!",
+      "slug": "tutorial-merajut-untuk-pemula",
+      "excerpt": "Ingin belajar merajut tapi bingung mulai dari mana? Panduan lengkap ini cocok untuk kamu yang baru pertama kali memegang jarum crochet.",
+      "content": "## Panduan Belajar Merajut untuk Pemula\n\nMerajut bukan sekadar hobi, tapi juga bentuk terapi seni yang menenangkan. Jika Anda baru ingin memulai, berikut adalah langkah-langkah dasar yang perlu Anda ketahui.\n\n### 1. Menyiapkan Alat dan Bahan\nSebagai pemula, pilihlah **hakpen (hook)** ukuran sedang (4mm atau 5mm) dan benang katun dengan warna terang agar jeratan (stitch) terlihat jelas.\n\n### 2. Belajar Simpul Awal (Slip Knot)\nSemua projek rajutan dimulai dari simpul awal. Pastikan simpul tidak terlalu ketat agar hook bisa masuk dengan mudah.\n\n### 3. Membuat Rantai (Chain Stitch)\nRantai adalah dasar dari hampir semua rajutan. Latihlah tangan Anda untuk mendapatkan ketegangan (tension) yang konsisten.\n\n### 4. Mengenal Single Crochet (SC)\nIni adalah teknik dasar paling penting. Dengan menguasai SC, Anda sudah bisa membuat projek sederhana seperti tatakan gelas (coaster).\n\n### 5. Jangan Menyerah!\nRajutan pertama mungkin tidak sempurna, tapi itulah prosesnya. Setiap tarikan benang akan membuat Anda semakin mahir.\n\nIngin melihat langsung hasil rajutan profesional? Kunjungi katalog produk WienCraft kami!",
+      "thumbnail": "/blog-flyer.png",
+      "category": "Tutorial",
+      "tags": ["merajut", "pemula", "handmade", "hobi"],
       "status": "published",
-      "seoTitle": "Ide Hadiah Handmade yang Berkesan - WienCraft",
-      "seoDesc": "Temukan ide hadiah handmade berkesan dari WienCraft. Bouquet, tas, dan boneka rajut custom."
+      "seoTitle": "Tutorial Merajut Pemula Lengkap - WienCraft Blog",
+      "seoDesc": "Panduan langkah demi langkah belajar merajut untuk pemula. Pelajari teknik dasar crochet dan alat yang dibutuhkan."
     },
     {
-      "title": "Cara Merawat Tas Rajut agar Awet",
-      "slug": "cara-merawat-tas-rajut",
-      "excerpt": "Tas rajut butuh perawatan khusus. Simak tips merawatnya agar tetap cantik dan awet bertahun-tahun.",
-      "content": "## Tips Merawat Tas Rajut\\n\\n### Hindari Mesin Cuci\\nCuci tangan dengan air dingin dan sabun mild.\\n\\n### Jemur di Tempat Teduh\\nHindari sinar matahari langsung agar warna tidak pudar.\\n\\n### Simpan dengan Tisu\\nMasukkan tisu di dalam tas saat disimpan agar bentuk tetap bagus.\\n\\nDengan perawatan sederhana, tas rajut WienCraft bisa awet bertahun-tahun.",
-      "thumbnail": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80",
-      "category": "Perawatan",
-      "tags": [
-        "perawatan",
-        "tas rajut",
-        "tips"
-      ],
+      "title": "Ide Hadiah Handmade yang Berkesan",
+      "slug": "ide-hadiah-handmade",
+      "excerpt": "Hadiah handmade selalu punya nilai sentimental lebih. Ini ide kado rajut yang cocok untuk berbagai momen spesial Anda.",
+      "content": "## Kenapa Memilih Hadiah Handmade?\n\nHadiah buatan tangan menunjukkan bahwa Anda memberikan waktu dan perhatian ekstra bagi sang penerima. Berikut adalah beberapa ide kado rajut dari WienCraft yang pasti akan disukai:\n\n### 1. Bouquet Bunga Rajut\nBerbeda dengan bunga asli, buket rajut tidak akan pernah layu. Ini adalah simbol kasih sayang yang abadi untuk hari kelulusan, ulang tahun, atau anniversary.\n\n### 2. Boneka Amigurumi Custom\nAnda bisa memesan boneka rajut yang menyerupai karakter favorit atau hewan kesayangan sebagai kado yang sangat personal.\n\n### 3. Tas Rajut Eksklusif\nBagi pecinta fashion, tas rajut dengan desain custom adalah hadiah yang sangat bernilai karena unik dan tidak diproduksi massal.\n\nSiap memberikan kejutan? Hubungi WienCraft untuk konsultasi pesanan custom Anda!",
+      "thumbnail": "https://images.unsplash.com/photo-1512909006721-3d6018887383?w=800&q=80",
+      "category": "Inspirasi",
+      "tags": ["hadiah", "kado", "handmade", "artisan"],
       "status": "published",
-      "seoTitle": "Cara Merawat Tas Rajut agar Awet - WienCraft",
-      "seoDesc": "Tips merawat tas rajut handmade agar tetap cantik dan awet."
+      "seoTitle": "Ide Kado Handmade Unik dan Personal - WienCraft Blog",
+      "seoDesc": "Cari inspirasi kado yang unik? Temukan berbagai ide hadiah handmade rajutan yang berkesan untuk orang tersayang."
     }
   ],
   "testimonials": [
     {
       "name": "Dina A.",
-      "role": "Pelanggan",
-      "content": "Tas rajutnya super cantik dan rapi! Pengiriman cepat, packingnya juga aesthetic. Pasti repeat order!",
+      "role": "Pelanggan Setia",
+      "content": "Tas rajutnya super cantik dan rapi banget! Pengiriman cepat, packingnya juga sangat aesthetic dan aman. Pasti akan repeat order untuk kado teman-teman saya.",
       "featured": true
     },
     {
       "name": "Rina S.",
       "role": "Gift Buyer",
-      "content": "Bouquet tulipnya lucu banget, temenku seneng banget dikasih ini. Worth it!",
+      "content": "Buket tulip rajutnya lucu banget, temanku sampai terharu waktu dikasih. Kualitas benangnya premium dan warnanya sangat soft sesuai foto. Worth it!",
       "featured": true
     },
     {
       "name": "Budi K.",
       "role": "Corporate Client",
-      "content": "Pesan souvenir dompet rajut untuk acara kantor. Kualitasnya konsisten semua. Recommended!",
+      "content": "Pesan souvenir dompet rajut untuk acara kantor dalam jumlah banyak. Kualitasnya sangat konsisten dan selesai tepat waktu. Pelayanan admin sangat ramah.",
       "featured": false
     }
   ],
   "homepageSettings": [
     {
       "key": "hero_title",
-      "value": "Handmade Premium Craft for Your Everyday"
+      "value": "Handmade Premium Craft for Your Special Moments"
     },
     {
       "key": "hero_subtitle",
-      "value": "Tas, dompet, bouquet & custom rajut dibuat dengan tangan penuh cinta."
+      "value": "Wujudkan kreasi rajutan impianmu bersama WienCraft. Setiap simpul dibuat dengan penuh cinta dan ketelitian."
     },
     {
       "key": "whatsapp_number",
@@ -183,7 +191,7 @@
     },
     {
       "key": "whatsapp_message",
-      "value": "Halo WienCraft, saya tertarik dengan produk rajutnya."
+      "value": "Halo WienCraft, saya ingin bertanya tentang produk rajut custom-nya."
     },
     {
       "key": "instagram",
@@ -195,7 +203,7 @@
     },
     {
       "key": "about_text",
-      "value": "WienCraft adalah UMKM kerajinan tangan rajut yang fokus pada kualitas premium dan desain aesthetic. Setiap produk dibuat dengan teliti menggunakan benang berkualitas tinggi."
+      "value": "WienCraft adalah studio kerajinan tangan rajut yang berdedikasi menciptakan produk berkualitas premium dengan desain yang estetik. Kami percaya bahwa setiap karya buatan tangan memiliki jiwa dan cerita unik di baliknya."
     }
   ]
 }

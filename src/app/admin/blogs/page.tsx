@@ -23,7 +23,25 @@ export default function AdminBlogsPage() {
     const res = await fetch("/admin/blogs/api");
     setBlogs(await res.json());
   }
-  useEffect(() => { load(); }, []);
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadInitialBlogs() {
+      const res = await fetch("/admin/blogs/api");
+      const data: Blog[] = await res.json();
+
+      if (active) {
+        setBlogs(data);
+      }
+    }
+
+    void loadInitialBlogs();
+
+    return () => {
+      active = false;
+    };
+  }, []);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();

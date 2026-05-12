@@ -1,42 +1,104 @@
 import Link from "next/link";
-import { db } from "@/db";
-import { blogs } from "@/db/schema";
-import { eq } from "drizzle-orm";
+import Image from "next/image";
 import { MotionArticle } from "@/components/motion-wrapper";
 
+// Single featured blog post — Tutorial Merajut with Flyer
+const featuredPost = {
+  slug: "tutorial-merajut-untuk-pemula",
+  title: "Tutorial Merajut untuk Pemula — Mulai dari Nol!",
+  excerpt:
+    "Ingin belajar merajut tapi bingung mulai dari mana? Panduan lengkap ini cocok untuk kamu yang baru pertama kali memegang jarum crochet.",
+  thumbnail: "/blog-flyer.png",
+  category: "Tutorial",
+  readingTime: "5 menit",
+};
+
 export async function BlogPreview() {
-  const posts = db.select().from(blogs).where(eq(blogs.status, "published")).limit(3).all();
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-10">
+    <section className="py-24 bg-[oklch(0.975_0.012_80)]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
           <div>
-            <h2 className="text-3xl font-serif font-bold text-stone-900">Inspirasi & Tips</h2>
-            <p className="text-stone-600 mt-2">Baca artikel menarik seputar handmade</p>
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="w-6 h-px bg-[oklch(0.60_0.12_40)]" />
+              <span className="text-[11px] tracking-[0.22em] uppercase font-medium text-[oklch(0.60_0.12_40)]">
+                Journal
+              </span>
+            </div>
+            <h2 className="font-serif text-4xl lg:text-5xl font-bold text-[oklch(0.18_0.015_60)] leading-tight">
+              Inspirasi &amp;{" "}
+              <span className="italic text-[oklch(0.60_0.12_40)]">Tips</span>
+            </h2>
           </div>
-          <Link href="/blog" className="hidden sm:inline-block text-sm font-medium text-rose-700 hover:underline">Lihat Semua →</Link>
+          <Link
+            href="/blog"
+            className="link-underline text-sm font-medium text-[oklch(0.40_0.02_65)] hover:text-[oklch(0.60_0.12_40)] transition-colors self-start md:self-end"
+          >
+            Lihat Semua Artikel →
+          </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {posts.map((b, i) => (
-            <MotionArticle
-              key={b.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-            >
-              <Link href={`/blog/${b.slug}`} className="block group">
-                <div className="aspect-video rounded-2xl overflow-hidden bg-stone-100 mb-4">
-                  <img src={b.thumbnail || "https://placehold.co/800x450/e7e5e4/78716c?text=WienCraft"} alt={b.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
+
+        {/* Single large featured article */}
+        <MotionArticle
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+        >
+          <Link href={`/blog/${featuredPost.slug}`} className="group block">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+
+              {/* Image — large, editorial */}
+              <div className="lg:col-span-7 relative aspect-[16/10] rounded-[1.5rem] overflow-hidden bg-[oklch(0.90_0.025_75)]">
+                <Image
+                  src={featuredPost.thumbnail}
+                  alt={featuredPost.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width:768px) 90vw, 55vw"
+                />
+                <div className="absolute inset-0 bg-[oklch(0.18_0.015_60/0%)] group-hover:bg-[oklch(0.18_0.015_60/8%)] transition-colors duration-400 pointer-events-none" />
+              </div>
+
+              {/* Content */}
+              <div className="lg:col-span-5 flex flex-col justify-center">
+                {/* Tags */}
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="text-[10px] tracking-widest uppercase font-bold px-3 py-1.5 rounded-full bg-[oklch(0.60_0.12_40)] text-[oklch(0.975_0.012_80)]">
+                    {featuredPost.category}
+                  </span>
+                  <span className="text-xs text-[oklch(0.55_0.02_70)]">
+                    {featuredPost.readingTime} baca
+                  </span>
                 </div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-medium px-2 py-1 bg-stone-100 text-stone-600 rounded-full">{b.category}</span>
+
+                {/* Title */}
+                <h3 className="font-serif text-2xl lg:text-3xl font-bold text-[oklch(0.18_0.015_60)] group-hover:text-[oklch(0.60_0.12_40)] transition-colors duration-200 leading-snug mb-4">
+                  {featuredPost.title}
+                </h3>
+
+                {/* Excerpt */}
+                <p className="text-sm text-[oklch(0.50_0.02_70)] leading-relaxed mb-6">
+                  {featuredPost.excerpt}
+                </p>
+
+                {/* Read more */}
+                <div className="inline-flex items-center gap-2 text-sm font-semibold text-[oklch(0.60_0.12_40)] group-hover:gap-3 transition-all duration-200">
+                  <span>Baca Selengkapnya</span>
+                  <span>→</span>
                 </div>
-                <h3 className="font-semibold text-stone-900 group-hover:text-rose-700 transition-colors line-clamp-2">{b.title}</h3>
-                <p className="text-sm text-stone-600 mt-2 line-clamp-2">{b.excerpt}</p>
-              </Link>
-            </MotionArticle>
-          ))}
+              </div>
+            </div>
+          </Link>
+        </MotionArticle>
+
+        {/* Mobile see all */}
+        <div className="mt-8 text-center md:hidden">
+          <Link href="/blog" className="text-sm font-medium text-[oklch(0.60_0.12_40)]">
+            Lihat Semua Artikel →
+          </Link>
         </div>
       </div>
     </section>

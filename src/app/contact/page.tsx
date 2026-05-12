@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { whatsappUrl, INSTAGRAM, TIKTOK } from "@/lib/constants";
+import { whatsappUrl, INSTAGRAM } from "@/lib/constants";
 import { MessageCircle, MapPin } from "lucide-react";
 
 export const metadata = { title: "Kontak", description: "Hubungi WienCraft via WhatsApp dan media sosial." };

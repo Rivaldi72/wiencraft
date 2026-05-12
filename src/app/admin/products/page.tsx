@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -26,7 +25,24 @@ export default function AdminProductsPage() {
     setProducts(data);
   }
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    let active = true;
+
+    async function loadInitialProducts() {
+      const res = await fetch("/admin/products/api");
+      const data: Product[] = await res.json();
+
+      if (active) {
+        setProducts(data);
+      }
+    }
+
+    void loadInitialProducts();
+
+    return () => {
+      active = false;
+    };
+  }, []);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
