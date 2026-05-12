@@ -14,6 +14,10 @@ function toAbsoluteUrl(path: string) {
   return path.startsWith("/") ? `${baseUrl}${path}` : `${baseUrl}/${path}`;
 }
 
+function toXmlSafeUrl(path: string) {
+  return toAbsoluteUrl(path).replace(/&/g, "&amp;");
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -58,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(product.updatedAt || product.createdAt || Date.now()),
       changeFrequency: "weekly" as const,
       priority: 0.8,
-      images: product.images?.filter(Boolean).map(toAbsoluteUrl),
+      images: product.images?.filter(Boolean).map(toXmlSafeUrl),
     }));
 
   const blogRoutes: MetadataRoute.Sitemap = db
@@ -71,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(post.updatedAt || post.createdAt || Date.now()),
       changeFrequency: "monthly" as const,
       priority: 0.7,
-      images: post.thumbnail ? [toAbsoluteUrl(post.thumbnail)] : undefined,
+      images: post.thumbnail ? [toXmlSafeUrl(post.thumbnail)] : undefined,
     }));
 
   return [...staticRoutes, ...productRoutes, ...blogRoutes];
