@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Playfair_Display, Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { Navbar } from "@/components/layout/navbar";
@@ -88,18 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </ImageZoomProvider>
         </ThemeProvider>
       </body>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GOOGLE_ANALYTICS_ID}');
-        `}
-      </Script>
+      <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
     </html>
   );
 }
