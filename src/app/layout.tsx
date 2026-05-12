@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { ThemeProvider } from "next-themes";
 import { ImageZoomProvider } from "@/components/ui/image-zoom";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -21,30 +22,55 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "WienCraft | Kerajinan Rajut Premium & Custom Order",
     template: "%s | WienCraft Artisan"
   },
-  description: "WienCraft menghadirkan kerajinan rajut handmade premium mulai dari tas, dompet, boneka (amigurumi), hingga buket bunga yang elegan. Setiap simpul dibuat dengan cinta dan ketelitian untuk momen spesial Anda.",
+  description: SITE_DESCRIPTION,
   keywords: ["rajut handmade", "tas rajut premium", "amigurumi indonesia", "kado unik", "kerajinan tangan", "WienCraft", "custom order rajut", "buket bunga rajut"],
-  authors: [{ name: "WienCraft Team" }],
-  creator: "WienCraft",
+  authors: [{ name: "WienCraft Team", url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/icon.svg",
   },
   openGraph: {
+    title: "WienCraft | Kerajinan Rajut Premium & Custom Order",
+    description: SITE_DESCRIPTION,
+    url: "/",
+    siteName: SITE_NAME,
     type: "website",
     locale: "id_ID",
-    url: "https://wiencraft.vercel.app",
-    siteName: "WienCraft Artisan",
-    title: "WienCraft | Kerajinan Rajut Premium",
-    description: "Karya seni rajut tangan berkualitas tinggi untuk gaya hidup estetik Anda.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "WienCraft handmade premium crochet brand mark and headline",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WienCraft | Kerajinan Rajut Premium & Custom Order",
+    description: SITE_DESCRIPTION,
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
-  metadataBase: new URL("https://wiencraft.vercel.app"),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,9 +1,10 @@
+import type { Metadata } from "next";
 import { db } from "@/db";
 import { products, blogs } from "@/db/schema";
 import { sql } from "drizzle-orm";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export const metadata = { title: "Dashboard" };
+export const metadata: Metadata = { title: "Dashboard" };
 
 export default function DashboardPage() {
   const productCount = db.select({ count: sql<number>`count(*)` }).from(products).get()?.count || 0;

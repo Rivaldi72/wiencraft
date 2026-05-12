@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import { db } from "@/db";
 import { homepageSettings } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
-export const metadata = { title: "Tentang WienCraft", description: "Cerita di balik UMKM kerajinan rajut WienCraft." };
+export const metadata: Metadata = {
+  title: "Tentang WienCraft",
+  description: "Cerita di balik WienCraft, brand kerajinan rajut handmade premium yang fokus pada kualitas, custom order, dan hadiah berkesan.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function AboutPage() {
   const about = db.select().from(homepageSettings).where(eq(homepageSettings.key, "about_text")).get();

@@ -1,9 +1,16 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { db } from "@/db";
 import { blogs } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
-export const metadata = { title: "Blog", description: "Inspirasi dan tips seputar kerajinan rajut handmade." };
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Inspirasi hadiah, tips perawatan, dan cerita seputar kerajinan rajut handmade premium dari WienCraft.",
+  alternates: {
+    canonical: "/blog",
+  },
+};
 
 export default function BlogPage() {
   const posts = db.select().from(blogs).where(eq(blogs.status, "published")).all();

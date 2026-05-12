@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { whatsappUrl, INSTAGRAM } from "@/lib/constants";
 import { MessageCircle, MapPin } from "lucide-react";
 
-export const metadata = { title: "Kontak", description: "Hubungi WienCraft via WhatsApp dan media sosial." };
+export const metadata: Metadata = {
+  title: "Kontak",
+  description: "Hubungi WienCraft via WhatsApp dan Instagram untuk konsultasi, custom order, dan pertanyaan produk rajut handmade premium.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (

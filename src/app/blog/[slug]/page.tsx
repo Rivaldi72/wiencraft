@@ -8,6 +8,7 @@ import { MotionDiv } from "@/components/motion-wrapper";
 import { ArrowLeft, Calendar, Tag, User } from "lucide-react";
 import Link from "next/link";
 import { ZoomableImage } from "@/components/ui/image-zoom";
+import { SITE_NAME } from "@/lib/constants";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -19,15 +20,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     where: eq(blogs.slug, slug),
   });
 
-  if (!post) return { title: "Blog Not Found" };
+  if (!post || post.status !== "published") {
+    return {
+      title: "Blog Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
 
   return {
     title: post.seoTitle || post.title,
     description: post.seoDesc || post.excerpt,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
     openGraph: {
       title: post.seoTitle || post.title,
       description: post.seoDesc || post.excerpt,
+      url: `/blog/${slug}`,
+      siteName: SITE_NAME,
+      type: "article",
       images: post.thumbnail ? [post.thumbnail] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.seoTitle || post.title,
+      description: post.seoDesc || post.excerpt || undefined,
+      images: post.thumbnail ? [post.thumbnail] : undefined,
     },
   };
 }

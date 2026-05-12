@@ -8,6 +8,7 @@ import { eq, and, ne } from "drizzle-orm";
 import { ZoomableImage } from "@/components/ui/image-zoom";
 import { MotionDiv } from "@/components/motion-wrapper";
 import { ArrowLeft, MessageCircle, Ruler, ShieldCheck, Truck } from "lucide-react";
+import { SITE_NAME } from "@/lib/constants";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -19,15 +20,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     where: eq(products.slug, slug),
   });
 
-  if (!p) return { title: "Produk Tidak Ditemukan" };
+  if (!p || p.status !== "published") {
+    return {
+      title: "Produk Tidak Ditemukan",
+      robots: { index: false, follow: false },
+    };
+  }
 
   return {
     title: p.seoTitle || `${p.name} - Koleksi Rajut Premium WienCraft`,
     description: p.seoDesc || p.description,
+    alternates: {
+      canonical: `/products/${slug}`,
+    },
     openGraph: {
       title: p.seoTitle || p.name,
       description: p.seoDesc || p.description,
+      url: `/products/${slug}`,
+      siteName: SITE_NAME,
+      type: "website",
       images: p.images?.[0] ? [p.images[0]] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: p.seoTitle || p.name,
+      description: p.seoDesc || p.description || undefined,
+      images: p.images?.[0] ? [p.images[0]] : undefined,
     },
   };
 }

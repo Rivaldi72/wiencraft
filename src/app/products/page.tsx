@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { db } from "@/db";
 import { products, categories } from "@/db/schema";
 import { eq } from "drizzle-orm";
@@ -6,9 +7,13 @@ import { MotionDiv } from "@/components/motion-wrapper";
 import Image from "next/image";
 import { Search } from "lucide-react";
 
-export const metadata = { 
+export const metadata: Metadata = { 
   title: "Katalog Produk Kerajinan Rajut Premium",
   description: "Jelajahi koleksi lengkap produk rajut handmade premium dari WienCraft. Tas, dompet, boneka, dan aksesoris unik lainnya."
+  ,
+  alternates: {
+    canonical: "/products",
+  },
 };
 
 export default async function ProductsPage({ searchParams }: { searchParams: Promise<{ category?: string; q?: string }> }) {
